@@ -1,12 +1,14 @@
 <?php
 session_start();
-if(isset($_SESSION["uid"])){
+if(!isset($_SESSION["uid"])){
     
-    header("location:profile.php");
+   header("location:index.php") ;
+    
 }
-
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -43,17 +45,16 @@ if(isset($_SESSION["uid"])){
                     <li class="nav-item"> <button class="btn btn-info" type="submit" id="search_btn">Search</button> </li>
                 </ul>
 
-                <ul class="navbar-nav mb-lg-0 d-flex">
-                    <li class="nav-item dropdown dropstart">
+                <ul class="navbar-nav mb-lg-0 d-flex" style="margin-right:50px;">
+                    <li class="nav-item dropdown dropstart" id="cartcontainer">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-shopping-cart" aria-hidden="true" style="color:white"></i>&nbsp; Cart
+                            <i class="fa fa-shopping-cart" aria-hidden="true" style="color:white"></i>&nbsp; Cart<span class="badge badge-light">0</span>
+
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="card" style="width:400px">
-                                <div class="card-header bg-success text-white">
-                                    Cart
-                                </div>
-                                <div class="card-body  ">
+                            <div class="card" style="width:400px;padding:0.2em">
+
+                                <div class="card-header bg-success text-white ">
                                     <div class="row">
 
                                         <div class="col-md-3">Sl No.</div>
@@ -63,41 +64,47 @@ if(isset($_SESSION["uid"])){
                                     </div>
                                 </div>
 
-                                <div class="card-footer">
+                                <div id="cart_product"></div>
+                                <!--
+                                     <div class="row">
 
+                                        <div class="col-md-3">Sl No.</div>
+                                        <div class="col-md-3">Product Image</div>
+                                        <div class="col-md-3">Product Name</div>
+                                        <div class="col-md-3">Price In Rs.</div>
+                                    </div>
+-->
 
-                                </div>
+                                <div class="card-footer"></div>
                             </div>
+
+
+
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown dropstart">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-user" aria-hidden="true" style="color:white"></i>&nbsp; SignIn
+                            <i class="fa fa-user" style="color:white"></i>&nbsp;<?php echo "Hi ".$_SESSION['name'];?>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="card" style="width:300px">
-                                <div id="loginmsg"></div>
-                                <div class="card-header bg-primary text-white">
-                                    Login
-                                </div>
-                                <div class="card-header  bg-primary text-white">
-                                    <label for="email"> Email</label>
-                                    <input class="form-control" id="email" type="email" />
-                                    <label for="password"> Password</label>
-                                    <input class="form-control" id="pass" type="password" />
-                                    <br>
-                                    <button class="btn btn-danger pull-right" id="login" value="login">signIn</button>
-                                </div>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true" style="color:white;"></i>Cart</a>
+                            </li>
+                            <li class="devider"></li>
+                            <li>
+                                <a class="nav-link" href="#">Change Password</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="logout.php">Logout</a>
+                            </li>
 
-
-                            </div>
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="customer_register.php"><i class="fa fa-user" aria-hidden="true" style="color:white"></i>&nbsp;SignUp</a>
-                    </li>
+                    <!--  <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true" style="color:white"></i>&nbsp;SignUp</a>
+                    </li>-->
                 </ul>
 
             </div>
@@ -128,8 +135,13 @@ if(isset($_SESSION["uid"])){
                     </div>
 
                     <div class="card-body  ">
+
+                        <div id="msg1"></div>
+
                         <div id="get_product">
-                     </div>
+
+
+                        </div>
                         <!--
 <div class="row">
  <div class="col-md-4">
@@ -149,6 +161,20 @@ if(isset($_SESSION["uid"])){
                                 </div>
 </div>
 </div>
+
+<div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination" id="pageno">
+                                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
 -->
 
 
@@ -159,6 +185,23 @@ if(isset($_SESSION["uid"])){
 
                 <div class="card-footer">
                     &copy; 2023 Nice Web Technologies
+                    <div class="pull-right">
+
+                   <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination" id="pageno">
+                                  <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

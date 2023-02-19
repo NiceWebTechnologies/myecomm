@@ -42,86 +42,85 @@
 
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <div class="alert alert-success alert-dismissible fade show" role="alert" id="msg"></div>
+                <div id="msg"></div>
 
                 <div class="card">
                     <div class="card-header bg-primary text-white">SIGN UP</div>
                     <div class="card-body">
                         <form method="post">
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-6">
-                                <label for="fname">First Name</label>
-                                <input class="form-control" id="fname" type="text" name="fname">
+                                <div class="col-md-6">
+                                    <label for="fname">First Name</label>
+                                    <input class="form-control" id="fname" type="text" name="fname">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lname">Last Name</label>
+                                    <input class="form-control" id="lname" type="text" name="lname">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="lname">Last Name</label>
-                                <input class="form-control" id="lname" type="text" name="lname">
-                            </div>
-                        </div>
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-12">
-                                <label for="email">email</label>
-                                <input class="form-control" id="email" type="email" name="email">
-                            </div>
+                                <div class="col-md-12">
+                                    <label for="email">email</label>
+                                    <input class="form-control" id="email" type="email" name="email">
+                                </div>
 
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <label for="pass">Password</label>
-                                <input class="form-control" id="email" type="password" name="password">
                             </div>
 
-                        </div>
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-12">
-                                <label for="pass1">Repeat-Password</label>
-                                <input class="form-control" id="pass1" type="password" name="password1">
+                                <div class="col-md-12">
+                                    <label for="pass">Password</label>
+                                    <input class="form-control" id="email" type="password" name="password">
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <label for="pass1">Repeat-Password</label>
+                                    <input class="form-control" id="pass1" type="password" name="password1">
+                                </div>
+
                             </div>
 
-                        </div>
+                            <div class="row">
 
-                        <div class="row">
+                                <div class="col-md-12">
+                                    <label for="mobile">Mobile</label>
+                                    <input class="form-control" id="mobile" type="mobile" name="mobile">
+                                </div>
 
-                            <div class="col-md-12">
-                                <label for="mobile">Mobile</label>
-                                <input class="form-control" id="mobile" type="mobile" name="mobile">
                             </div>
 
-                        </div>
+                            <div class="row">
 
-                        <div class="row">
+                                <div class="col-md-12">
+                                    <label for="addr">Address line 1</label>
+                                    <input class="form-control" id="address" type="text" name="addr">
+                                </div>
 
-                            <div class="col-md-12">
-                                <label for="addr">Address line 1</label>
-                                <input class="form-control" id="address" type="text" name="addr">
                             </div>
 
-                        </div>
 
+                            <div class="row">
 
-                        <div class="row">
+                                <div class="col-md-12">
+                                    <label for="addr1">Address line 2</label>
+                                    <input class="form-control" id="addr1" type="text" name="addr1">
+                                </div>
 
-                            <div class="col-md-12">
-                                <label for="addr1">Address line 2</label>
-                                <input class="form-control" id="addr1" type="text" name="addr1">
                             </div>
+                            <br>
+                            <div class="row">
 
-                        </div>
-                        <br>
-                        <div class="row">
+                                <div class="col-md-12">
+                                    <input type="button" class=" btn btn-success btn-lg pull-right" id="sign_up" type="button" name="signup" value="SignUp">
+                                </div>
 
-                            <div class="col-md-12">
-                                
-                                <input type="button" class=" btn btn-success btn-lg pull-right" id="sign_up" type="button" name="signup" value="SignUp" >
                             </div>
-                           
-                        </div>
-                            </form>
+                        </form>
                     </div>
                     <div class="card-footer">SIGN UP</div>
 
