@@ -1,0 +1,6 @@
+{
+    "require": {
+        "razorpay/razorpay": "2.*",
+        "twbs/bootstrap": "5.2.0"
+    }
+}

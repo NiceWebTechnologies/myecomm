@@ -332,6 +332,18 @@ function cart_count(){
         });
         
     });
+   cart_detail();
+    function cart_detail(){
+        $.ajax({
+            url:"action.php",
+            method:"POST",
+            data:{cart_detail:1},
+            success:function(data){
+                $('.cart_detail').html(data);
+            }
+            
+        });
+    }
 
 });
 

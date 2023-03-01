@@ -212,6 +212,7 @@ if(isset($_POST["getcartProduct"])||isset($_POST["cart_check"])){
     
     if($count>0){
         $no=1;
+        $total_amt=0;
         while($row=mysqli_fetch_array($sql)){
         $id=$row["id"];
            $pro_id=$row["p_id"];
@@ -220,7 +221,9 @@ if(isset($_POST["getcartProduct"])||isset($_POST["cart_check"])){
            $qty=$row["qty"];
            $pro_image= $row["product_image"];
            $total=$row["total_amount"];
-            
+            $price_array=array($total);
+            $total_array=array_sum($price_array);
+            $total_amt=$total_amt+$total_array;
             if(isset($_POST["getcartProduct"])){
                 
                      echo "
@@ -251,11 +254,17 @@ if(isset($_POST["getcartProduct"])||isset($_POST["cart_check"])){
                              <div class='col-md-2'><input type='text' class='form-control qty'  pid='$pro_id' id='qty_$pro_id' value='$qty'></div>
                             <div class='col-md-2'><input type='text' class='form-control total' pid='$pro_id'  id='total_$pro_id' value='$total' disabled></div>
                 </div>
-            ";
                 
+            ";
+             
             }
        
         }
+         echo "<div class='row'>
+                <div class='col-md-12'>
+              <h6 class='pull-right'> Sub Total = Rs. $total_amt</h6>
+                </div>
+                <div>"  ;
     }
 }
 
@@ -302,6 +311,59 @@ $uid=$_SESSION["uid"];
     }
 }
 
+if (isset($_POST["cart_detail"])){
+    $uid=$_SESSION["uid"];
+      $sql=mysqli_query($con,"select * from cart where user_id='$uid'");
+      $no=1;
+        $total_amt=0;
+        while($row=mysqli_fetch_array($sql)){
+        $id=$row["id"];
+           $pro_id=$row["p_id"];
+           $pro_title=$row["product_title"];
+           $pro_price= $row["price"];
+           $qty=$row["qty"];
+           $pro_image= $row["product_image"];
+           $total=$row["total_amount"];
+            $price_array=array($total);
+            $total_array=array_sum($price_array);
+            $total_amt=$total_amt+$total_array;
+            $txid=rand(10,10000);
+    echo "
+    <div class='col-md-6'>
+                                <img src='$pro_image' class='img-thumbnail pull-right' width='150' height='150'>
+                                <br>
+                            </div>
+                            <div class='col-md-6'>
+     <table class='table-borderless'>
+                                    <tr>
+                                        <td><b>Product Name :</b></td>
+                                        <td><b>$pro_title</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <b>Product Price :</b></td>
+                                        <td> <b>$pro_price</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Quantity :</b></td>
+                                        <td><b>$qty</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Payment :</b></td>
+                                        <td><b>$total</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tansaction ID. :</b></td>
+                                        <td><b>$txid</b></td>
+                                    </tr>
 
+                                </table>
+                        </div>        
+                                <br><br>
+                                
+    
+    ";
+        }
+    
+}
 
 ?>
