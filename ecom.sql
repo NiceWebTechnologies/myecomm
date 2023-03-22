@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 02:23 PM
+-- Generation Time: Mar 22, 2023 at 02:28 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -217,8 +217,7 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
-(11, 'Ram', 'Ahuja', 'abc@gmail.com', '123', '123456789', 'asdf', 'sdfg2'),
-(12, 'Rachana', 'singh', 'evesdrop08@gmail.com', '123456789', '8368066493', 'kashdj', 'sdf'),
+(11, 'Rakesh', 'singh', 'abc@gmail.com', '123', '123456789', 'asdf', 'sdfg2'),
 (13, 'hello', 'hello', 'asd@gmail.com', '123', '1234567890', 'asd', 'asdsad');
 
 --
